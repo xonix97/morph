@@ -205,6 +205,15 @@ The particle-specific launcher is also available at
 `demos/particles/run.ps1` and accepts `-Install` or `-Direct`. The root
 launcher forwards `-Install` as well.
 
+The product website is in `webform/`. Preview it locally with:
+
+```console
+python3 -m http.server 4173 --directory webform
+```
+
+Then open `http://localhost:4173`. The page includes an interactive browser
+simulation of the same state-preserving reload story for demos and judging.
+
 The script also handles the common `\\wsl$\Ubuntu\...` checkout path: Cargo
 build artifacts are redirected to a local Windows directory because Windows
 does not support Cargo's incremental lock files reliably on the WSL network

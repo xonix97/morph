@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Morph keeps your live application state while you change the behavior. Verified hot reload for C and Python.">
+  <meta name="theme-color" content="#0a0d12">
+  <title>Morph — Hot-reload the behavior. Keep the live world.</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <header class="site-header" id="top">
+    <a class="brand" href="#top" aria-label="Morph home"><span class="brand-mark"><span></span><span></span><span></span></span><span>MORPH</span></a>
+    <nav class="nav-links" aria-label="Main navigation"><a href="#proof">Live proof</a><a href="#boundaries">Boundaries</a><a href="#start">Get started</a></nav>
+    <a class="header-cta" href="https://github.com/xonix97/morph" target="_blank" rel="noreferrer">View on GitHub <span>↗</span></a>
+  </header>
+
+  <main>
+    <section class="hero section-shell">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="pulse-dot"></span> CAPABILITY-AWARE HOT RELOAD</div>
+        <h1>Hot-reload the <em>behavior.</em><br>Keep the live world.</h1>
+        <p class="hero-lede">Morph changes validated application code without restarting the running process or losing deliberately host-owned state.</p>
+        <div class="hero-actions"><a class="button button-primary" href="#proof">See it in motion <span>↓</span></a><a class="button button-quiet" href="#start">Run Morph <span>↗</span></a></div>
+        <div class="hero-proof"><div class="proof-item"><strong>2</strong><span>verified<br>boundaries</span></div><div class="proof-divider"></div><div class="proof-item"><strong>0</strong><span>process<br>restarts</span></div><div class="proof-divider"></div><div class="proof-item"><strong>1</strong><span>last-good<br>generation</span></div></div>
+      </div>
+      <div class="hero-orbit" aria-hidden="true"><div class="orbit-ring orbit-ring-one"></div><div class="orbit-ring orbit-ring-two"></div><div class="orbit-ring orbit-ring-three"></div><div class="orbit-core"><span class="core-glyph">M</span></div><span class="orbit-label orbit-label-a">STATE</span><span class="orbit-label orbit-label-b">CODE</span><span class="orbit-label orbit-label-c">LIVE</span></div>
+    </section>
+
+    <section class="ticker" aria-label="Morph principles"><div class="ticker-track"><span>EDIT WITHOUT RESET</span><i>✦</i><span>VALIDATE BEFORE ACTIVATION</span><i>✦</i><span>KEEP THE LAST GOOD VERSION</span><i>✦</i><span>EDIT WITHOUT RESET</span><i>✦</i><span>VALIDATE BEFORE ACTIVATION</span><i>✦</i></div></section>
+
+    <section class="proof-section section-shell" id="proof">
+      <div class="section-intro"><div><div class="eyebrow">01 / LIVE PROOF</div><h2>Change the code.<br><em>Watch the world stay.</em></h2></div><p>Everything below is running in one browser tab. The simulated world has a process identity, a frame clock, a state fingerprint, and a swappable logic generation.</p></div>
+      <div class="demo-card">
+        <div class="demo-toolbar"><div class="window-dots"><span></span><span></span><span></span></div><div class="demo-tab"><span class="tab-status"></span> morph / particle-world</div><div class="demo-live"><span class="pulse-dot"></span> LIVE SESSION</div></div>
+        <div class="demo-grid">
+          <div class="canvas-wrap"><canvas id="particle-canvas" aria-label="Interactive particle world showing state-preserving hot reload"></canvas><div class="canvas-overlay"><div class="overlay-title">PARTICLE WORLD</div><div class="overlay-subtitle">host-owned state / reloadable behavior</div></div><div class="canvas-corner">OPENGL / PYTHON</div></div>
+          <aside class="demo-panel"><div class="panel-kicker">RUNTIME TELEMETRY</div><div class="telemetry-row"><span>PROCESS</span><strong id="process-id">pid 18472</strong></div><div class="telemetry-row"><span>FRAME</span><strong id="frame-count">000000</strong></div><div class="telemetry-row"><span>ELAPSED</span><strong id="elapsed-time">00:00.0</strong></div><div class="telemetry-row"><span>WORLD ID</span><strong id="world-id">7F3A·9C21</strong></div><div class="state-bar-label"><span>STATE FINGERPRINT</span><span id="anchor-id">9f0c2a1b77</span></div><div class="state-bar"><span id="state-bar-fill"></span></div><div class="logic-block"><div class="logic-heading"><span class="status-led"></span><span>ACTIVE LOGIC</span><b id="logic-version">V1</b></div><div class="logic-name" id="logic-name">particle_logic.py</div><div class="logic-meta"><span id="logic-color-name">electric blue</span><span id="generation-label">generation 0</span></div></div><button class="button button-demo" id="reload-button"><span class="button-icon">↻</span> Change behavior</button><button class="button button-fail" id="break-button"><span class="button-icon">!</span> Break candidate</button><div class="demo-log" id="demo-log" aria-live="polite"><span class="log-time">now</span> <span class="log-ok">●</span> runtime ready — state preserved</div></aside>
+        </div>
+        <div class="demo-caption"><span class="caption-arrow">↗</span><span>Click “Change behavior” to simulate editing <code>particle_logic.py</code>. The color and motion change. The PID, frame, world ID, and state fingerprint do not.</span></div>
+      </div>
+    </section>
+
+    <section class="contrast-section section-shell"><div class="contrast-card contrast-without"><div class="contrast-label"><span class="x-mark">×</span> WITHOUT MORPH</div><h3>Restart the app.<br><span>Reset the world.</span></h3><div class="fake-terminal"><div><i class="terminal-red"></i><i class="terminal-yellow"></i><i class="terminal-green"></i></div><p>$ python app.py</p><p class="muted">HOST_START pid=18472</p><p class="muted">frame 003584 / elapsed 59.7s</p><p class="reset-line">↳ edit code → restart → frame 000001</p></div></div><div class="contrast-arrow">→</div><div class="contrast-card contrast-with"><div class="contrast-label"><span class="check-mark">✓</span> WITH MORPH</div><h3>Swap the behavior.<br><span>Keep the world.</span></h3><div class="fake-terminal"><div><i class="terminal-red"></i><i class="terminal-yellow"></i><i class="terminal-green"></i></div><p>$ morph dev .</p><p class="muted">RELOAD pid=18472 <b>generation=1</b></p><p class="muted">state_preserved=True</p><p class="keep-line">↳ frame 003585 / elapsed 59.8s / live</p></div></div></section>
+
+    <section class="how-section section-shell" id="how"><div class="section-intro compact-intro"><div><div class="eyebrow">02 / THE CONTRACT</div><h2>Not magic.<br><em>A boundary.</em></h2></div><p>Morph is honest about what hot reload can guarantee. State lives on the stable side. Behavior lives on the swappable side. The runtime validates the bridge before it lets anything change.</p></div><div class="steps-grid"><article class="step-card"><div class="step-number">01</div><div class="step-icon">⌁</div><h3>Detect</h3><p>Understand the project, its tools, and its actual integration boundary before choosing a backend.</p><span class="step-tag">CAPABILITY-AWARE</span></article><article class="step-card step-active"><div class="step-number">02</div><div class="step-icon">◈</div><h3>Validate</h3><p>Build or load a candidate generation. Check its ABI, module contract, version, and required functions.</p><span class="step-tag">NO BLIND SWAPS</span></article><article class="step-card"><div class="step-number">03</div><div class="step-icon">↝</div><h3>Activate</h3><p>Switch behavior only after acknowledgement. Keep the process, state, and last good generation alive.</p><span class="step-tag">STATE CONTINUES</span></article></div></section>
+
+    <section class="boundaries-section section-shell" id="boundaries"><div class="section-intro"><div><div class="eyebrow">03 / VERIFIED BOUNDARIES</div><h2>Two real adapters.<br><em>No inflated claims.</em></h2></div><p>Morph is deliberately narrower than “HMR for everything.” Each implemented boundary has a lifecycle, failure behavior, state rule, and reproducible demo.</p></div><div class="boundary-grid"><article class="boundary-card python-card"><div class="boundary-top"><span class="boundary-number">01</span><span class="boundary-status"><i></i> IMPLEMENTED</span></div><div class="boundary-symbol">Py</div><h3>Python controlled runtime</h3><p>Allowlisted modules load under a temporary name, validate, optionally migrate state, then swap through <code>Runtime.call</code>.</p><div class="code-line"><span>runtime.</span>call(<span>"app_logic"</span>, <span>"render"</span>, state)</div><div class="boundary-footer"><span>Runtime.state survives</span><span>↗ demo/python</span></div></article><article class="boundary-card c-card"><div class="boundary-top"><span class="boundary-number">02</span><span class="boundary-status"><i></i> IMPLEMENTED</span></div><div class="boundary-symbol">C</div><h3>C shared library / DLL</h3><p>A long-lived host validates a versioned <code>MorphPluginV1</code> ABI, loads a new generation, and keeps host-owned state outside the library.</p><div class="code-line"><span>morph_plugin_v1</span>() <span>→</span> ABI 1</div><div class="boundary-footer"><span>Host state survives</span><span>↗ demo/c</span></div></article></div><div class="detection-strip"><div class="detection-copy"><span class="detection-icon">◎</span><div><strong>Detection-only is a feature.</strong><span>Morph sees Rust, C++, Go, and JavaScript/TypeScript — then refuses to pretend they are safely reloadable.</span></div></div><div class="detection-list"><span>RUST</span><span>C++</span><span>GO</span><span>JS / TS</span></div></div></section>
+
+    <section class="code-section section-shell"><div class="section-intro compact-intro"><div><div class="eyebrow">04 / THE DEVELOPER EXPERIENCE</div><h2>One command<br><em>to keep moving.</em></h2></div><p>Start from a template, wire an explicit boundary, and get a runtime that tells you whether the change was actually applied.</p></div><div class="code-showcase"><div class="code-tabs"><button class="code-tab active" data-tab="python">Python</button><button class="code-tab" data-tab="c">C / DLL</button><span class="code-file">app.py</span><button class="copy-code" id="copy-code">COPY</button></div><pre class="code-content active" data-code="python"><code><span class="syntax-key">from</span> morph_runtime <span class="syntax-key">import</span> Runtime
+
+runtime = Runtime([<span class="syntax-string">"app_logic"</span>])
+
+<span class="syntax-key">while</span> runtime.running:
+    runtime.state[<span class="syntax-string">"frame"</span>] += <span class="syntax-number">1</span>
+    runtime.call(
+        <span class="syntax-string">"app_logic"</span>, <span class="syntax-string">"render"</span>, runtime.state
+    )</code></pre><pre class="code-content" data-code="c"><code><span class="syntax-type">MorphPluginV1</span> plugin = load_generation(
+    <span class="syntax-string">"plugin.g2.dll"</span>
+);
+
+<span class="syntax-key">if</span> (plugin.abi_version == MORPH_ABI_V1) {
+    host.active = plugin;
+    <span class="syntax-comment">// host_state keeps running</span>
+}</code></pre><div class="code-footer"><span><i class="tiny-dot"></i> explicit boundary / no magic</span><span>morph dev . <b>↗</b></span></div></div></section>
+
+    <section class="start-section section-shell" id="start"><div class="start-card"><div class="start-content"><div class="eyebrow">05 / START NOW</div><h2>Keep your world<br><em>while you build it.</em></h2><p>Run the deterministic proof in seconds, or launch the 3D particle world and change it live.</p><div class="start-actions"><button class="copy-command" data-command="make test"><span>$</span> make test <b id="copy-command-label">COPY</b></button><a class="button button-primary" href="https://github.com/xonix97/morph" target="_blank" rel="noreferrer">Open repository <span>↗</span></a></div></div><div class="start-orbit"><div class="start-orbit-center">M</div><span class="start-orbit-text text-one">STATE</span><span class="start-orbit-text text-two">BEHAVIOR</span><span class="start-orbit-text text-three">LIVE</span></div></div></section>
+  </main>
+
+  <footer class="site-footer section-shell"><a class="brand" href="#top"><span class="brand-mark"><span></span><span></span><span></span></span><span>MORPH</span></a><span>Hot-reload the behavior. Keep the live world.</span><span>MIT / open source / 2026</span></footer>
+  <div class="toast" id="toast" role="status" aria-live="polite">Copied to clipboard</div>
+  <script src="app.js"></script>
+</body>
+</html>
