@@ -15,9 +15,9 @@
   };
 
   const palettes = [
-    { name: 'electric blue', core: [113, 168, 255], accent: [100, 226, 212], glow: 'rgba(100, 180, 255, .8)' },
-    { name: 'ember orange', core: [255, 148, 90], accent: [255, 211, 124], glow: 'rgba(255, 155, 87, .85)' },
-    { name: 'violet pulse', core: [193, 133, 255], accent: [123, 211, 255], glow: 'rgba(190, 120, 255, .8)' }
+    { name: 'white signal', core: [245, 245, 245], accent: [255, 255, 255], glow: 'rgba(255, 255, 255, .8)' },
+    { name: 'silver motion', core: [178, 178, 178], accent: [235, 235, 235], glow: 'rgba(220, 220, 220, .8)' },
+    { name: 'soft contrast', core: [215, 215, 215], accent: [150, 150, 150], glow: 'rgba(210, 210, 210, .75)' }
   ];
 
   const rand = (seed) => {

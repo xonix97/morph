@@ -213,6 +213,8 @@ python3 -m http.server 4173 --directory webform
 
 Then open `http://localhost:4173`. The page includes an interactive browser
 simulation of the same state-preserving reload story for demos and judging.
+On GitHub, `.github/workflows/pages.yml` publishes `webform/` to GitHub Pages
+on every `master` update.
 
 The script also handles the common `\\wsl$\Ubuntu\...` checkout path: Cargo
 build artifacts are redirected to a local Windows directory because Windows
