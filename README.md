@@ -48,25 +48,35 @@ The reproducible core toolchain is pinned in the repository:
 - a Cargo lockfile with no external Rust dependencies;
 - a standard-library-only core Python runtime.
 
-Install:
+The clean-machine path is the Docker image. It contains the pinned Rust
+toolchain, Python, C compiler, and Make, and runs the canonical test while the
+image is built. From a fresh checkout:
 
 ```console
-cargo install --path . --locked
+git clone https://github.com/xonix97/morph.git
+cd morph
+cp .env.example .env
+docker build -t morph:0.1.0 .
+docker run --rm morph:0.1.0
 ```
 
-Or run from a checkout:
+The `.env` copy is optional for Morph itself; it documents safe local runtime
+settings for direct Python controlled-runtime processes. It contains no
+credentials and is ignored by Git.
+
+For a native checkout, install Rustup, Python 3.11, Make, and a C compiler
+using your Linux distribution's normal package manager. Then Rustup reads
+`rust-toolchain.toml` automatically and selects Rust/Cargo `1.99.0`:
 
 ```console
-cargo run --locked --offline -- detect .
-```
-
-Rustup reads `rust-toolchain.toml` automatically. On a clean Linux checkout,
-install the system tools once, then run the canonical offline check:
-
-```console
-sudo apt-get update
-sudo apt-get install --yes build-essential make python3.11 python3.11-venv
 make test
+```
+
+To install the CLI from the checkout after the native prerequisites are
+available:
+
+```console
+cargo install --path . --locked --offline
 ```
 
 `make test` is the single project check. It runs Cargo in locked/offline mode,
@@ -466,6 +476,18 @@ Build and run the container:
 ```console
 docker build -t morph:0.1.0 .
 docker run --rm morph:0.1.0
+```
+
+The canonical test command is:
+
+```console
+make test
+```
+
+When using the image, the same test command can be run explicitly with:
+
+```console
+docker run --rm --entrypoint make morph:0.1.0 test
 ```
 
 The `Dockerfile` installs the pinned core system tools, builds with Cargo
