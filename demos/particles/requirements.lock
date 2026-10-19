@@ -1,0 +1,4 @@
+# Exact runtime pins for the Morph 3D particle demo.
+# Install with: python -m pip install -r requirements.lock
+pygame==2.6.1
+PyOpenGL==3.1.10

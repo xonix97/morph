@@ -1,0 +1,9 @@
+[morph]
+backend = "c-native"
+
+[c]
+plugin_source = "plugin/plugin.c"
+plugin_output = ".morph/c/plugin"
+host_command = ["{morph}", "internal-c-host", "--library", "{library}", "--control", "{control}", "--status", "{status}"]
+status_file = ".morph/c/reload.status"
+watch = ["plugin/plugin.c", "../../sdk/c/morph_reload.h"]

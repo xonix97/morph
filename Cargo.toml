@@ -1,0 +1,16 @@
+[package]
+name = "morph"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.74"
+description = "A capability-aware hot-reload orchestrator for real development workflows"
+license = "MIT"
+readme = "README.md"
+
+[lib]
+name = "morph"
+path = "src/lib.rs"
+
+[[bin]]
+name = "morph"
+path = "src/main.rs"

@@ -1,0 +1,10 @@
+[morph]
+backend = "python-controlled"
+
+[python]
+command = ["python", "app.py"]
+modules = ["particle_logic"]
+imports = ["pygame", "OpenGL.GL"]
+control_file = ".morph/python/reload.request"
+status_file = ".morph/python/reload.status"
+watch = ["particle_logic.py"]

@@ -1,0 +1,9 @@
+[morph]
+backend = "python-controlled"
+
+[python]
+command = ["python", "app.py"]
+modules = ["app_logic"]
+control_file = ".morph/python/reload.request"
+status_file = ".morph/python/reload.status"
+watch = ["app_logic.py"]
